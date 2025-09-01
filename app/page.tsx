@@ -4,7 +4,23 @@ import { useState } from "react"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Globe, Code, Cpu, Zap, Users, Shield, ArrowRight, Star, GitFork } from "lucide-react"
+import {
+  Globe,
+  Code,
+  Cpu,
+  Zap,
+  Users,
+  Shield,
+  ArrowRight,
+  Star,
+  GitFork,
+  Upload,
+  Database,
+  Wallet,
+  ExternalLink,
+  Mail,
+  MessageCircle,
+} from "lucide-react"
 
 export default function LiberGridPage() {
   const [language, setLanguage] = useState<"en" | "zh">("en")
@@ -19,11 +35,16 @@ export default function LiberGridPage() {
       learnMore: "Learn More",
       forDevelopers: "For Developers",
       forMiners: "For Miners",
+      modelUpload: "Model Upload",
       quickStart: "Quick Start",
       documentation: "Documentation",
       apiReference: "API Reference",
       examples: "Examples",
       community: "Community",
+      web3Wallet: "Web3 Wallet",
+      downloadWallet: "Download Wallet",
+      daoGovernance: "DAO Governance",
+      contactUs: "Contact Us",
     },
     zh: {
       title: "LiberGrid",
@@ -33,11 +54,16 @@ export default function LiberGridPage() {
       learnMore: "了解更多",
       forDevelopers: "开发者",
       forMiners: "矿工",
+      modelUpload: "模型上传",
       quickStart: "快速开始",
       documentation: "文档",
       apiReference: "API参考",
       examples: "示例",
       community: "社区",
+      web3Wallet: "Web3钱包",
+      downloadWallet: "下载钱包",
+      daoGovernance: "DAO治理",
+      contactUs: "联系我们",
     },
   }
 
@@ -59,6 +85,12 @@ export default function LiberGridPage() {
                 </a>
                 <a href="#miners" className="text-gray-600 hover:text-gray-900">
                   {t[language].forMiners}
+                </a>
+                <a href="#models" className="text-gray-600 hover:text-gray-900">
+                  {t[language].modelUpload}
+                </a>
+                <a href="#wallet" className="text-gray-600 hover:text-gray-900">
+                  {t[language].web3Wallet}
                 </a>
                 <a href="#docs" className="text-gray-600 hover:text-gray-900">
                   {t[language].documentation}
@@ -110,6 +142,113 @@ export default function LiberGridPage() {
               <div className="text-3xl font-bold text-gray-900">99.9%</div>
               <div className="text-gray-600">Uptime</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wallet" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t[language].web3Wallet}</h2>
+            <p className="text-xl text-gray-600">
+              {language === "en"
+                ? "Secure your LiberCoin and manage your decentralized computing assets"
+                : "保护您的LiberCoin并管理您的去中心化计算资产"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="text-center p-6">
+              <CardHeader>
+                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Wallet className="w-8 h-8 text-gray-600" />
+                </div>
+                <CardTitle>LiberGrid Wallet</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-6">
+                  {language === "en"
+                    ? "Official wallet with built-in mining dashboard and staking features"
+                    : "官方钱包，内置挖矿仪表板和质押功能"}
+                </p>
+                <div className="space-y-3">
+                  <Button className="w-full" size="lg">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {language === "en" ? "Download for Windows" : "下载Windows版"}
+                  </Button>
+                  <Button variant="outline" className="w-full bg-transparent">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {language === "en" ? "Download for macOS" : "下载macOS版"}
+                  </Button>
+                  <Button variant="outline" className="w-full bg-transparent">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {language === "en" ? "Download for Linux" : "下载Linux版"}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-8 h-8 text-blue-600" />
+                </div>
+                <CardTitle>MetaMask Extension</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-6">
+                  {language === "en"
+                    ? "Add LiberCoin to your existing MetaMask wallet"
+                    : "将LiberCoin添加到您现有的MetaMask钱包"}
+                </p>
+                <div className="space-y-3">
+                  <Button variant="outline" className="w-full bg-transparent" size="lg">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {language === "en" ? "Add to MetaMask" : "添加到MetaMask"}
+                  </Button>
+                  <div className="text-sm text-gray-500 font-mono bg-gray-50 p-3 rounded">
+                    Contract: 0x742d35Cc6634C0532925a3b8D4...
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-green-600" />
+                </div>
+                <CardTitle>Hardware Wallets</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-6">
+                  {language === "en"
+                    ? "Maximum security with Ledger and Trezor support"
+                    : "支持Ledger和Trezor的最高安全性"}
+                </p>
+                <div className="space-y-3">
+                  <Button variant="outline" className="w-full bg-transparent">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Ledger Setup Guide
+                  </Button>
+                  <Button variant="outline" className="w-full bg-transparent">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Trezor Setup Guide
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button size="lg" className="mr-4">
+              <Wallet className="w-4 h-4 mr-2" />
+              {t[language].downloadWallet}
+            </Button>
+            <Button size="lg" variant="outline">
+              <Shield className="w-4 h-4 mr-2" />
+              {language === "en" ? "Security Guide" : "安全指南"}
+            </Button>
           </div>
         </div>
       </section>
@@ -235,6 +374,191 @@ const result = await secureClient.inference({
             <Button size="lg" variant="outline">
               <Code className="w-4 h-4 mr-2" />
               API Reference
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="models" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {language === "en" ? "Model Upload & Distribution" : "模型上传与分发"}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {language === "en"
+                ? "Upload your AI models to the decentralized network and earn from usage"
+                : "将您的AI模型上传到去中心化网络并从使用中获利"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                {language === "en" ? "Upload Your Model" : "上传您的模型"}
+              </h3>
+
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Upload className="w-5 h-5 mr-2" />
+                    {language === "en" ? "CLI Upload" : "命令行上传"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    <pre className="text-gray-900">{`# Install LiberGrid CLI
+npm install -g @libergrid/cli
+
+# Login to your account
+libergrid auth login
+
+# Upload model with metadata
+libergrid model upload \\
+  --path ./my-model \\
+  --name "custom-llama-7b" \\
+  --description "Fine-tuned Llama for code generation" \\
+  --license "MIT" \\
+  --price 0.001 # LBC per token`}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Code className="w-5 h-5 mr-2" />
+                    {language === "en" ? "SDK Upload" : "SDK上传"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    <pre className="text-gray-900">{`import { LiberGrid } from '@libergrid/sdk'
+
+const client = new LiberGrid({
+  apiKey: process.env.LIBERGRID_API_KEY
+})
+
+// Upload model programmatically
+const model = await client.models.upload({
+  modelPath: './models/my-model',
+  metadata: {
+    name: 'custom-gpt-3.5',
+    description: 'Specialized for financial analysis',
+    tags: ['finance', 'analysis', 'gpt'],
+    license: 'Commercial',
+    pricing: {
+      perToken: 0.002,
+      perRequest: 0.01
+    }
+  }
+})
+
+console.log(\`Model uploaded: \${model.id}\`)`}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                {language === "en" ? "Model Management" : "模型管理"}
+              </h3>
+
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Database className="w-5 h-5 mr-2" />
+                    {language === "en" ? "Version Control" : "版本控制"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    <pre className="text-gray-900">{`# Create new model version
+libergrid model version create \\
+  --model-id my-model-123 \\
+  --path ./updated-model \\
+  --version "1.2.0" \\
+  --changelog "Improved accuracy by 15%"
+
+# List all versions
+libergrid model versions list my-model-123
+
+# Set default version
+libergrid model version set-default \\
+  --model-id my-model-123 \\
+  --version "1.2.0"`}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="mb-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Zap className="w-5 h-5 mr-2" />
+                    {language === "en" ? "Analytics & Earnings" : "分析与收益"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    <pre className="text-gray-900">{`# View model usage statistics
+libergrid model stats my-model-123
+
+# Output:
+# Total Requests: 45,231
+# Total Tokens: 12.4M
+# Earnings: 24.8 LBC
+# Avg Response Time: 1.2s
+# Success Rate: 99.7%
+
+# Get detailed analytics
+libergrid model analytics \\
+  --model-id my-model-123 \\
+  --period 30d \\
+  --format json > analytics.json`}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Shield className="w-5 h-5 mr-2" />
+                    {language === "en" ? "Access Control" : "访问控制"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    <pre className="text-gray-900">{`# Set model visibility
+libergrid model config set \\
+  --model-id my-model-123 \\
+  --visibility "public" # public, private, whitelist
+
+# Configure usage limits
+libergrid model limits set \\
+  --model-id my-model-123 \\
+  --max-requests-per-hour 1000 \\
+  --max-tokens-per-request 4096
+
+# Add API key restrictions
+libergrid model access grant \\
+  --model-id my-model-123 \\
+  --api-key "key_abc123" \\
+  --permissions "inference,analytics"`}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button size="lg" className="mr-4">
+              <Upload className="w-4 h-4 mr-2" />
+              {language === "en" ? "Upload Your First Model" : "上传您的第一个模型"}
+            </Button>
+            <Button size="lg" variant="outline">
+              <Database className="w-4 h-4 mr-2" />
+              {language === "en" ? "Browse Model Marketplace" : "浏览模型市场"}
             </Button>
           </div>
         </div>
@@ -367,10 +691,16 @@ libergrid optimize \\
 
       <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div>
               <h3 className="font-semibold text-gray-900 mb-4">LiberGrid</h3>
-              <p className="text-gray-600 text-sm">Decentralized AI computing for everyone</p>
+              <p className="text-gray-600 text-sm mb-4">Decentralized AI computing for everyone</p>
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:contact@libergrid.org" className="hover:text-gray-900">
+                  contact@libergrid.org
+                </a>
+              </div>
             </div>
             <div>
               <h4 className="font-semibold text-gray-900 mb-4">Developers</h4>
@@ -417,32 +747,60 @@ libergrid optimize \\
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900">
-                    Community
+                    Miner Community
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t[language].daoGovernance}</h4>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>
                   <a href="#" className="hover:text-gray-900">
-                    Whitepaper
+                    {language === "en" ? "Governance Portal" : "治理门户"}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900">
-                    Blog
+                    {language === "en" ? "Proposals" : "提案"}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900">
-                    Support
+                    {language === "en" ? "Voting" : "投票"}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-gray-900">
-                    Status
+                    {language === "en" ? "Treasury" : "国库"}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-900 mb-4">{t[language].community}</h4>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>
+                  <a href="https://twitter.com/libergrid" className="hover:text-gray-900 flex items-center">
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="https://discord.gg/libergrid" className="hover:text-gray-900 flex items-center">
+                    <MessageCircle className="w-3 h-3 mr-1" />
+                    Discord
+                  </a>
+                </li>
+                <li>
+                  <a href="https://t.me/libergrid" className="hover:text-gray-900 flex items-center">
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-gray-900">
+                    {language === "en" ? "Forum" : "论坛"}
                   </a>
                 </li>
               </ul>
