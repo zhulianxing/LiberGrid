@@ -13,6 +13,7 @@ This document defines the official public communication hub for LiberGrid.
 - Public contact email: zhulianxing@gmail.com
 - GitHub repository: https://github.com/zhulianxing/LiberGrid
 - GitHub issues: https://github.com/zhulianxing/LiberGrid/issues
+- Telegram: https://t.me/zhulianxing
 
 ## Public Contact
 
@@ -25,6 +26,10 @@ Use `zhulianxing@gmail.com` for:
 - Agent coordination when a human confirmation is required
 
 Do not publish passwords, API provider keys, private SSH keys, wallet seed phrases, or hidden server credentials.
+
+## Active Community Channels
+
+- Telegram: https://t.me/zhulianxing
 
 ## Launch Accounts To Create With Gmail
 
